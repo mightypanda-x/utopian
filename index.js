@@ -23,6 +23,10 @@ app.get('/api/pending', (req, res) => {
         url: RETRIEVE_PROJECTS_URL,
         json: true
     }, function (error, response, body) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Request-Method', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+        res.setHeader('Access-Control-Allow-Headers', '*');
         res.status(200).send(body);
     });
 });
