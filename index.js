@@ -3,6 +3,8 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+const RETRIEVE_PROJECTS_URL = "https://utopian.rocks/api/posts?status=pending";
+const request = require("request");
 app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -17,5 +19,10 @@ const router = express.Router();
 app.use(routes.registerRoutes(router, app));
 */
 app.get('/api/pending', (req, res) => {
-    res.status(200).send({test:'page data'});
+    request.get({
+        url: RETRIEVE_PROJECTS_URL,
+        json: true
+    }, function (error, response, body) {
+        res.status(200).send(body);
+    });
 });
