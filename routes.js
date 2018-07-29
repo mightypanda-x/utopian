@@ -1,8 +1,9 @@
-import {Application, Router} from 'express';
-import * as Utopian from './api/utopian';
-
-export function registerRoutes(router, app) {
-  // Register API Routes
-  Utopian.RegisterProjectRoutes(router);
-  return router;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Utopian = require("./api/utopian");
+function registerRoutes(router, app) {
+    Utopian.RegisterProjectRoutes(router);
+    return router;
 }
+exports.registerRoutes = registerRoutes;
+//# sourceMappingURL=routes.js.map
