@@ -10,7 +10,12 @@ app
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+/*
 const routes = require('./routes');
 
 const router = express.Router();
 app.use(routes.registerRoutes(router, app));
+*/
+app.get('/api/pending', (req, res) => {
+    res.status(200).send({test:'page data'});
+});
